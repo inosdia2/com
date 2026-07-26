@@ -1,1 +1,1 @@
-DIANDA Inoussa, Docteur en Histoire Economoque et Relations Internatinales
+DIANDA Inoussa, Docteur en Histoire Economique et Relations Internatinales
