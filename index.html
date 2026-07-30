@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dianda Inoussa — Docteur en Histoire économique &amp; Relations internationales</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1c2b3a;
+    --paper:#e9e4d6;
+    --paper-deep:#ded6c2;
+    --seal:#9c3b2e;
+    --seal-deep:#7c2e24;
+    --line:#c9c0a8;
+    --muted:#5a6270;
+    --white:#f7f5ee;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.55;
+  }
+  ::selection{background:var(--seal); color:var(--white);}
+  a{color:inherit;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 28px;}
+
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    pointer-events:none;
+    background-image:
+      radial-gradient(circle at 20% 15%, rgba(0,0,0,0.025) 0, transparent 45%),
+      radial-gradient(circle at 85% 70%, rgba(0,0,0,0.03) 0, transparent 50%);
+    z-index:0;
+  }
+
+  /* nav */
+  nav.toc{
+    position:sticky; top:0; z-index:20;
+    background:rgba(233,228,214,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.toc .wrap{
+    display:flex; gap:22px; overflow-x:auto;
+    padding:14px 28px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    white-space:nowrap;
+  }
+  nav.toc a{text-decoration:none; color:var(--muted); border-bottom:1px solid transparent;}
+  nav.toc a:hover{color:var(--seal-deep); border-bottom-color:var(--seal-deep);}
+
+  header.hero{
+    position:relative;
+    padding:80px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--seal-deep);
+    display:flex; align-items:center; gap:10px;
+    margin-bottom:22px;
+  }
+  .eyebrow::before{content:""; width:26px; height:1px; background:var(--seal-deep); display:inline-block;}
+  h1{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    font-size:clamp(38px, 6.5vw, 62px);
+    line-height:1.02;
+    margin:0 0 20px;
+    letter-spacing:-0.01em;
+  }
+  .hero-role{font-size:18px; max-width:600px; color:var(--muted); margin:0 0 28px;}
+  .hero-role strong{color:var(--ink); font-weight:600;}
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:10px 24px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:12.5px; color:var(--muted);
+    margin:0 0 30px;
+  }
+  .hero-meta a{text-decoration:none; border-bottom:1px solid var(--line);}
+  .hero-meta a:hover{color:var(--seal-deep); border-bottom-color:var(--seal-deep);}
+
+  .stamp{
+    position:absolute; top:56px; right:28px;
+    width:112px; height:112px;
+    border:2px solid var(--seal);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    transform:rotate(-9deg); opacity:.85;
+  }
+  .stamp-inner{
+    text-align:center; font-family:'IBM Plex Mono', monospace;
+    color:var(--seal); font-size:9.5px; letter-spacing:.07em; line-height:1.5;
+    text-transform:uppercase;
+  }
+  .stamp-inner b{display:block; font-size:12.5px; letter-spacing:.05em;}
+  @media (max-width:640px){ .stamp{display:none;} }
+
+  .cta-row{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; letter-spacing:.03em;
+    text-decoration:none; padding:13px 22px;
+    display:inline-flex; align-items:center; gap:8px;
+    border-radius:2px; transition:transform .15s ease, background .15s ease;
+  }
+  .btn-primary{background:var(--seal); color:var(--white);}
+  .btn-primary:hover{background:var(--seal-deep); transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--ink); color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink); color:var(--paper);}
+
+  section{padding:60px 0; position:relative; border-bottom:1px solid var(--line); scroll-margin-top:56px;}
+  section:last-of-type{border-bottom:none;}
+
+  .kicker{
+    font-family:'IBM Plex Mono', monospace; font-size:12px; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--muted); margin:0 0 26px;
+  }
+  h2.section-title{
+    font-family:'Newsreader', serif; font-weight:500;
+    font-size:clamp(24px,4vw,32px); margin:0 0 34px;
+  }
+  p.lede{max-width:640px; color:var(--muted); font-size:15px; margin:-16px 0 30px;}
+
+  /* expertise grid */
+  .expertise-grid{
+    display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr));
+    gap:1px; background:var(--line); border:1px solid var(--line);
+  }
+  .expertise-item{background:var(--paper); padding:26px 24px;}
+  .expertise-item .num{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--seal-deep); margin-bottom:10px; display:block;}
+  .expertise-item h3{font-family:'Newsreader', serif; font-size:19px; font-weight:500; margin:0;}
+
+  /* FED ledger */
+  .ledger{background:var(--white); border:1px solid var(--line); padding:32px 30px 26px;}
+  .ledger-head{
+    display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:10px;
+    margin-bottom:26px; font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--muted);
+    text-transform:uppercase; letter-spacing:.08em;
+  }
+  .fed-row{display:grid; grid-template-columns:140px 1fr 110px; align-items:center; gap:18px; padding:15px 0; border-top:1px solid var(--line);}
+  .fed-row:first-of-type{border-top:none;}
+  .fed-period{font-family:'IBM Plex Mono', monospace; font-size:13px;}
+  .fed-period span{display:block; color:var(--muted); font-size:11px; margin-top:2px;}
+  .fed-bar-track{height:20px; background:var(--paper-deep); position:relative; overflow:hidden;}
+  .fed-bar{position:absolute; top:0; left:0; bottom:0; background:var(--seal); width:0%; transition:width 1.1s cubic-bezier(.16,.8,.3,1);}
+  .fed-amount{font-family:'IBM Plex Mono', monospace; font-size:13px; text-align:right;}
+  @media (max-width:560px){ .fed-row{grid-template-columns:1fr; gap:6px;} .fed-amount{text-align:left;} }
+  .ledger-foot{margin-top:20px; padding-top:16px; border-top:1px solid var(--line); font-size:13px; color:var(--muted);}
+  .ledger-foot a{color:var(--seal-deep); text-decoration:underline; text-underline-offset:2px;}
+
+  /* generic timeline entries (formation, experience, affiliations) */
+  .tl-item{display:grid; grid-template-columns:150px 1fr; gap:20px; padding:18px 0; border-top:1px solid var(--line);}
+  .tl-item:first-of-type{border-top:none;}
+  .tl-date{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--muted); padding-top:3px;}
+  .tl-title{font-weight:600; font-size:15.5px; margin:0 0 3px;}
+  .tl-org{font-style:italic; color:var(--muted); font-size:14px; margin:0 0 6px;}
+  .tl-detail{margin:0; font-size:13.5px; color:var(--ink); opacity:.9;}
+  @media (max-width:560px){ .tl-item{grid-template-columns:1fr; gap:5px;} }
+
+  /* compact list (diplomas) */
+  ul.plain{list-style:none; margin:0; padding:0;}
+  ul.plain li{
+    display:flex; gap:14px; padding:10px 0; border-top:1px solid var(--line); font-size:14.5px;
+  }
+  ul.plain li:first-child{border-top:none;}
+  ul.plain li .yr{font-family:'IBM Plex Mono', monospace; font-size:12px; color:var(--seal-deep); min-width:44px;}
+
+  /* communications by year — details/summary */
+  details.year-group{border-top:1px solid var(--line); padding:16px 0;}
+  details.year-group:first-of-type{border-top:none;}
+  details.year-group summary{
+    cursor:pointer; list-style:none;
+    font-family:'IBM Plex Mono', monospace; font-size:13.5px;
+    display:flex; align-items:center; justify-content:space-between;
+    color:var(--ink); font-weight:500;
+  }
+  details.year-group summary::-webkit-details-marker{display:none;}
+  details.year-group summary::after{
+    content:"+"; font-size:16px; color:var(--seal-deep); margin-left:12px;
+  }
+  details.year-group[open] summary::after{content:"–";}
+  details.year-group summary .count{color:var(--muted); font-weight:400;}
+  .comm{padding:14px 0 4px 0px;}
+  .comm-item{padding:12px 0; border-top:1px dashed var(--line); font-size:14.5px;}
+  .comm-item:first-child{border-top:none; padding-top:16px;}
+  .comm-title{font-style:italic;}
+  .comm-meta{display:block; color:var(--muted); font-size:12.5px; margin-top:4px;}
+
+  /* publications */
+  .pub{padding:18px 0; border-top:1px solid var(--line); font-size:14.5px;}
+  .pub:first-of-type{border-top:none;}
+  .pub-journal{
+    font-family:'IBM Plex Mono', monospace; font-size:11px; text-transform:uppercase;
+    letter-spacing:.06em; color:var(--seal-deep); margin-bottom:6px;
+  }
+  .pub-title{font-style:italic;}
+  .pub-authors{color:var(--muted); font-size:13px; margin-top:4px;}
+
+  /* skills / languages */
+  .chip-grid{display:flex; flex-wrap:wrap; gap:12px;}
+  .chip{
+    font-family:'IBM Plex Mono', monospace; font-size:13px; border:1px solid var(--ink);
+    padding:9px 16px; display:flex; align-items:center; gap:10px;
+  }
+  .chip .dot{width:6px; height:6px; border-radius:50%; background:var(--seal);}
+  .chip .lvl{color:var(--muted);}
+
+  .two-col{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+  @media (max-width:640px){ .two-col{grid-template-columns:1fr;} }
+
+  /* references */
+  .ref-card{border-top:1px solid var(--line); padding:18px 0;}
+  .ref-card:first-of-type{border-top:none;}
+  .ref-name{font-weight:600; font-size:15px;}
+  .ref-title{color:var(--muted); font-size:13.5px; margin-top:2px;}
+  .ref-note{font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--muted); margin-top:20px;}
+
+  footer{padding:52px 0 76px; text-align:center;}
+  footer .kicker{margin-bottom:16px;}
+  footer h2{font-family:'Newsreader', serif; font-weight:500; font-size:clamp(26px,5vw,40px); margin:0 0 26px;}
+  footer .cta-row{justify-content:center;}
+  footer .fine{margin-top:44px; font-family:'IBM Plex Mono', monospace; font-size:11.5px; color:var(--muted);}
+
+  @media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto;} .fed-bar{transition:none;} }
+</style>
+</head>
+<body>
+
+<nav class="toc">
+  <div class="wrap">
+    <a href="#formation">Formation</a>
+    <a href="#enseignement">Enseignement</a>
+    <a href="#recherche">Recherche</a>
+    <a href="#communications">Communications</a>
+    <a href="#publications">Publications</a>
+    <a href="#competences">Compétences</a>
+    <a href="#references">Références</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Dossier professionnel</div>
+    <h1>Dianda Inoussa</h1>
+    <p class="hero-role">
+      Consultant indépendant en <strong>coopération au développement</strong>. Docteur en Histoire
+      économique et Relations internationales — Université Joseph KI-ZERBO (Burkina Faso).
+      Mes recherches portent sur l'histoire économique contemporaine, avec un accent sur les
+      relations entre l'Union européenne, le Burkina Faso et les pays ACP : société civile, genre,
+      bonne gouvernance, justice, diplomatie, économie et culture.
+    </p>
+    <div class="hero-meta">
+      <a href="mailto:inosdia@gmail.com">inosdia@gmail.com</a>
+      <span>+226 72 46 41 42</span>
+      <span>+226 65 93 23 47</span>
+      <span>Bobo-Dioulasso, Burkina Faso</span>
+    </div>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:inosdia@gmail.com">Écrire un courriel</a>
+      <a class="btn btn-ghost" href="#publications">Voir les publications</a>
+    </div>
+    <div class="stamp" aria-hidden="true"><div class="stamp-inner"><b>Ph.D.</b>Histoire<br>UJKZ · 2026</div></div>
+  </div>
+</header>
+
+<section id="expertise">
+  <div class="wrap">
+    <p class="kicker">Domaines d'expertise</p>
+    <div class="expertise-grid">
+      <div class="expertise-item"><span class="num">01</span><h3>Coopération UE–Afrique de l'Ouest / ACP</h3></div>
+      <div class="expertise-item"><span class="num">02</span><h3>Évaluation de projets & programmes de développement</h3></div>
+      <div class="expertise-item"><span class="num">03</span><h3>Appui budgétaire & accords de partenariat économique (APE)</h3></div>
+      <div class="expertise-item"><span class="num">04</span><h3>Société civile, bonne gouvernance & justice</h3></div>
+      <div class="expertise-item"><span class="num">05</span><h3>Gestion des conflits & techniques de négociation</h3></div>
+      <div class="expertise-item"><span class="num">06</span><h3>Histoire économique & politiques agricoles</h3></div>
+    </div>
+  </div>
+</section>
+
+<section id="dossier">
+  <div class="wrap">
+    <p class="kicker">Pièce à l'appui — recherche doctorale</p>
+    <h2 class="section-title">L'appui budgétaire de l'UE au Burkina Faso, en chiffres</h2>
+    <div class="ledger">
+      <div class="ledger-head"><span>Fonds Européen de Développement</span><span>Montant alloué (M€)</span></div>
+      <div class="fed-row">
+        <div class="fed-period">9<sup>e</sup> FED<span>2001–2007</span></div>
+        <div class="fed-bar-track"><div class="fed-bar" data-amount="319.65" data-max="623"></div></div>
+        <div class="fed-amount">319,65 M€</div>
+      </div>
+      <div class="fed-row">
+        <div class="fed-period">10<sup>e</sup> FED<span>2008–2013</span></div>
+        <div class="fed-bar-track"><div class="fed-bar" data-amount="529" data-max="623"></div></div>
+        <div class="fed-amount">529 M€</div>
+      </div>
+      <div class="fed-row">
+        <div class="fed-period">11<sup>e</sup> FED<span>2014–2020</span></div>
+        <div class="fed-bar-track"><div class="fed-bar" data-amount="623" data-max="623"></div></div>
+        <div class="fed-amount">623 M€</div>
+      </div>
+      <div class="ledger-foot">
+        Reconstitution issue de la thèse de doctorat « La coopération UE-Burkina Faso dans le
+        cadre des projets et programmes de 2000 à 2020 » — voir
+        <a href="https://revue.akiri-uao.org/wp-content/uploads/journal/published_paper/volume-8/issue-1/cJwaBHwL.pdf" target="_blank" rel="noopener">l'article associé, Revue AKIRI n°8, 2024</a>.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="formation">
+  <div class="wrap">
+    <p class="kicker">Formation</p>
+    <h2 class="section-title">Parcours académique</h2>
+    <div class="tl-item">
+      <div class="tl-date">2020–2026</div>
+      <div><p class="tl-title">Doctorat en Histoire Économique et Relations Internationales</p><p class="tl-org">Université Joseph KI-ZERBO</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2016–2020</div>
+      <div><p class="tl-title">Master 2 en Histoire Économique et Relations Internationales</p><p class="tl-org">Université Joseph KI-ZERBO</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2015–2016</div>
+      <div><p class="tl-title">Master 1 en Histoire Économique et Relations Internationales</p><p class="tl-org">Université Joseph KI-ZERBO</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2013–2014</div>
+      <div><p class="tl-title">Licence en Histoire et Archéologie</p><p class="tl-org">Université Joseph KI-ZERBO</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2012–2013</div>
+      <div><p class="tl-title">Licence 2 en Histoire et Archéologie</p><p class="tl-org">Université Joseph KI-ZERBO</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2011–2012</div>
+      <div><p class="tl-title">Licence 1 en Histoire et Archéologie</p><p class="tl-org">Université Joseph KI-ZERBO</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2011</div>
+      <div><p class="tl-title">Baccalauréat, série A4</p><p class="tl-org">Lycée provincial de Nouna</p></div>
+    </div>
+
+    <div style="height:36px;"></div>
+    <p class="kicker">Certifications</p>
+    <div class="tl-item">
+      <div class="tl-date">2023</div>
+      <div><p class="tl-title">Certificat de traitement des sources et données sur l'Union européenne</p><p class="tl-org">Université de Strasbourg (France)</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2021</div>
+      <div><p class="tl-title">Certificat en Gestion des Conflits et Cohésion Sociale</p><p class="tl-org">École Nationale d'Administration et de Magistrature (ENAM)</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2021</div>
+      <div><p class="tl-title">Certificat en Technique de Négociation</p><p class="tl-org">École Nationale d'Administration et de Magistrature (ENAM)</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2018</div>
+      <div><p class="tl-title">Certificat d'Aptitude au Professorat de l'Enseignement Secondaire (CAPES) — option Histoire-Géographie</p><p class="tl-org">École Normale Supérieure</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="enseignement">
+  <div class="wrap">
+    <p class="kicker">Expérience</p>
+    <h2 class="section-title">Enseignement</h2>
+
+    <div class="tl-item">
+      <div class="tl-date">2024 → aujourd'hui</div>
+      <div><p class="tl-title">Vacataire — Relations internationales au XX<sup>e</sup> siècle (Licence 3 Histoire)</p><p class="tl-org">Université Nazi Boni, Bobo-Dioulasso</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2021 → aujourd'hui</div>
+      <div><p class="tl-title">Vacataire — Initiation à l'Histoire économique : faits et idées économiques du XIX<sup>e</sup> siècle à nos jours (Licence 1)</p><p class="tl-org">Université Nazi Boni, Bobo-Dioulasso</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2022–2023</div>
+      <div><p class="tl-title">Tuteur universitaire — encadrement pédagogique des étudiants en Licence d'Histoire et Archéologie</p><p class="tl-org">Université Joseph KI-ZERBO</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2020 → aujourd'hui</div>
+      <div><p class="tl-title">Vacataire — Diplomatie culturelle ; Initiation à l'Histoire et à l'Anthropologie de l'Art ; Histoire de l'Art</p><p class="tl-org">ENAM, section IRA Bobo-Dioulasso</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2018 → aujourd'hui</div>
+      <div><p class="tl-title">Professeur certifié des Lycées et Collèges — Enseignement d'Histoire-Géographie ; correcteur au BEPC et au Baccalauréat</p><p class="tl-org">Ministère de l'Enseignement Secondaire, Burkina Faso</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="recherche">
+  <div class="wrap">
+    <p class="kicker">Recherche</p>
+    <h2 class="section-title">Affiliations & organisation scientifique</h2>
+
+    <div class="tl-item">
+      <div class="tl-date">2020 → aujourd'hui</div>
+      <div><p class="tl-title">Membre</p><p class="tl-org">Laboratoire des Systèmes Politiques, Économiques, Religieux et Culturels (SPERC), Université Joseph KI-ZERBO</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2022 → aujourd'hui</div>
+      <div><p class="tl-title">Membre</p><p class="tl-org">GIS-Eurolab, Sorbonne Université (France)</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2022 → aujourd'hui</div>
+      <div><p class="tl-title">Président</p><p class="tl-org">Réseau Interdisciplinaire pour la Recherche en Sciences Sociales (RIRSS), Burkina Faso</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Oct. 2024</div>
+      <div><p class="tl-title">Membre du comité d'organisation et rapporteur</p><p class="tl-org">Colloque international « Remous et changements sociopolitiques en Afrique : regards croisés des sciences humaines, des lettres et des arts », Université Nazi Boni, Bobo-Dioulasso</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2022 → aujourd'hui</div>
+      <div><p class="tl-title">Membre du comité d'organisation des « Cafés Scientifiques »</p><p class="tl-org">Laboratoire d'Études Rurales sur l'Environnement et le Développement Économique et Social (LERE/DES), Université Nazi Boni</p></div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">Nov. 2022</div>
+      <div><p class="tl-title">Membre du comité d'organisation, rapporteur</p><p class="tl-org">Colloque international « Burkina Faso en Afrique et dans le monde », Université Joseph KI-ZERBO</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="communications">
+  <div class="wrap">
+    <p class="kicker">Communications scientifiques</p>
+    <h2 class="section-title">Interventions en colloques</h2>
+    <p class="lede">15 communications présentées entre 2021 et 2026, au Burkina Faso, en France, en Suisse, au Sénégal et au Niger.</p>
+
+    <details class="year-group" open>
+      <summary>2026 <span class="count">2 communications</span></summary>
+      <div class="comm">
+        <div class="comm-item">
+          <span class="comm-title">« Adaptation climatique et sécurité alimentaire : apport de la coopération UE-Burkina Faso (2000-2020) »</span>
+          <span class="comm-meta">Colloque CILSS « Renforcer le Nexus Climat–Écosystèmes pour une Souveraineté Alimentaire et une Résilience durable en Afrique de l'Ouest et au Sahel » · 16–18 juin 2026 · Niamey, Niger</span>
+        </div>
+        <div class="comm-item">
+          <span class="comm-title">Participation au programme « Promouvoir les perspectives locales sur les crises politiques et sécuritaires dans la région du Sahel »</span>
+          <span class="comm-meta">Université de Nottingham, financé par la British Academy · mai 2025 – mars 2026 · atelier d'écriture à Dakar, 3–6 février 2026</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="year-group">
+      <summary>2025 <span class="count">1 communication</span></summary>
+      <div class="comm">
+        <div class="comm-item">
+          <span class="comm-title">« Des camps coloniaux aux centres de transit sécuritaires : continuités d'internement et contrôle des populations en Haute-Volta/Burkina Faso (1958-2020) »</span>
+          <span class="comm-meta">Colloque international « Internment Europe : Des pratiques coloniales aux stratégies de contrôle contemporain » · MSH Val de Loire, Tours (France) · 26–28 novembre 2025</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="year-group">
+      <summary>2024 <span class="count">5 communications</span></summary>
+      <div class="comm">
+        <div class="comm-item">
+          <span class="comm-title">« Les logiques et les enjeux de l'inclusion des acteurs non-étatiques dans la coopération UE-Burkina Faso (1957-2020) »</span>
+          <span class="comm-meta">International Conference: Europeanisations from the Bottom and from the Margins · University of Lausanne (Suisse) · 27–29 novembre 2024</span>
+        </div>
+        <div class="comm-item">
+          <span class="comm-title">« Approches pédagogiques inclusives et décoloniales dans les études européennes »</span>
+          <span class="comm-meta">Deuxièmes rencontres d'été du GIS Euro-Lab · Sciences Po Lille (France) · 27 juin 2024</span>
+        </div>
+        <div class="comm-item">
+          <span class="comm-title">« Étude critique de la coopération UE-Burkina Faso : regards historiques (2000-2020) »</span>
+          <span class="comm-meta">Colloque « Remous et changements sociopolitiques en Afrique » · Université Nazi Boni, Bobo-Dioulasso · 24–25 octobre 2024</span>
+        </div>
+        <div class="comm-item">
+          <span class="comm-title">« L'OMC et la nécessité de la redéfinition des accords commerciaux UE-ACP : Cas de la CEDEAO »</span>
+          <span class="comm-meta">Journée d'hommage à Jean-Marc Palm · INSS, CNRST (Burkina Faso) · 14 septembre 2024</span>
+        </div>
+        <div class="comm-item">
+          <span class="comm-title">« Les projets et programmes de l'UE au Burkina Faso sous l'Accord de Cotonou : le cas de la société civile, de la bonne gouvernance et de la justice »</span>
+          <span class="comm-meta">Rencontres d'été de Lille · Université de Lille (France) · 26–28 juin 2024</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="year-group">
+      <summary>2023 <span class="count">2 communications</span></summary>
+      <div class="comm">
+        <div class="comm-item">
+          <span class="comm-title">« Faire une thèse de doctorat sur l'Union Européenne au Burkina Faso : la problématique des sources et des données »</span>
+          <span class="comm-meta">École d'été MAKErS, « Production, accès et analyse des sources et données sur l'Europe en SHS » · Université de Strasbourg (France) · 3–6 juillet 2023</span>
+        </div>
+        <div class="comm-item">
+          <span class="comm-title">« La coopération UE-Burkina Faso dans le domaine des infrastructures routières de 2000 à 2020 »</span>
+          <span class="comm-meta">Colloque international pluridisciplinaire en hommage à Norbert Zongo · Université Norbert Zongo, Koudougou · 13–15 décembre 2023</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="year-group">
+      <summary>2022 <span class="count">4 communications</span></summary>
+      <div class="comm">
+        <div class="comm-item">
+          <span class="comm-title">« Les terrains de jeux des enfants déplacés dans un contexte terroriste au Burkina Faso »</span>
+          <span class="comm-meta">Université d'été du projet de recherche TAPLA · MSH Paris-Nord (France) · 30 juin – 2 juillet 2022</span>
+        </div>
+        <div class="comm-item">
+          <span class="comm-title">« Le Burkina Faso (ex-Haute-Volta) dans les relations UE-ACP : de la veille des indépendances à 2020 »</span>
+          <span class="comm-meta">Colloque international transdisciplinaire « L'Afrique en devenir » · Université Cheikh Anta Diop (Sénégal) · 14–17 décembre 2022</span>
+        </div>
+        <div class="comm-item">
+          <span class="comm-title">« Analyse et interprétation des accords de coopération UE-ACP de 2000 à 2020 »</span>
+          <span class="comm-meta">Colloque « Burkina Faso en Afrique et dans le monde » · Université Joseph KI-ZERBO · 23–25 novembre 2022</span>
+        </div>
+        <div class="comm-item">
+          <span class="comm-title">« La coopération UE-Burkina Faso dans le cadre des projets et programmes de la culture (2000-2020) »</span>
+          <span class="comm-meta">Atelier international sur le patrimoine culturel africain · INSS, CNRST, Ouagadougou · 14–17 juin 2022</span>
+        </div>
+      </div>
+    </details>
+
+    <details class="year-group">
+      <summary>2021 <span class="count">1 communication</span></summary>
+      <div class="comm">
+        <div class="comm-item">
+          <span class="comm-title">« Esquisses et techniques de négociation dans le contexte de terrorisme au Burkina Faso »</span>
+          <span class="comm-meta">Colloque international « Terrorisme au Burkina Faso : négocier ou pas ? » · Université Joseph KI-ZERBO · 13–15 décembre 2021</span>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <p class="kicker">Publications scientifiques</p>
+    <h2 class="section-title">Travaux publiés (13)</h2>
+
+    <div class="pub">
+      <div class="pub-journal">Actes, journée d'hommage à Domba Jean-Marc Palm · 2026 · p. 73–97</div>
+      <p class="pub-title">« L'OMC et la redéfinition des relations commerciales entre l'Union européenne et le Burkina Faso (1957-2020) »</p>
+      <p class="pub-authors">Dianda, Inoussa — Presses Universitaires de Ouagadougou</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Djiboul, n°12 · 2025 · p. 338–350</div>
+      <p class="pub-title">« Les projets et programmes de la culture dans la coopération Union européenne-Burkina Faso de 2000 à 2020 »</p>
+      <p class="pub-authors">Dianda, Inoussa — Colloque Remous et changements sociopolitiques en Afrique</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Actes, colloque hommage Norbert Zongo · 2025 · p. 261–279</div>
+      <p class="pub-title">« La coopération UE-Burkina Faso dans le secteur des infrastructures routières de 2000 à 2020 »</p>
+      <p class="pub-authors">Dianda, Inoussa — Éditions du Centre National de Presse Norbert Zongo</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Revue Wiiré, n°16/2 · 2025 · p. 36–49</div>
+      <p class="pub-title">« L'Union Révolutionnaire de Banques (UREBA) (1984-1991) : une solution bancaire endogène sous l'ère Sankara »</p>
+      <p class="pub-authors">Yaméogo, Guétawendé Nathanael ; Dianda, Inoussa ; Ouédraogo, Boukaré</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Actes, hommage au Pr Moussa Willy Bantenga · 2025 · p. 413–430</div>
+      <p class="pub-title">« Les grands ensembles régionaux et la dynamique des espaces commerciaux du Burkina Faso de 1975 à 2020 »</p>
+      <p class="pub-authors">Belem, Youssou ; Dianda, Inoussa — Presses Universitaires de Ouagadougou</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Revue Sahel-Gates, vol. 1, n°1 · 2025 · p. 505–536</div>
+      <p class="pub-title">« Bilan de 20 ans d'Aide publique au développement (APD) au Burkina Faso (2000-2020) »</p>
+      <p class="pub-authors">Ouédraogo, Boukaré ; Dianda, Inoussa</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Revue Burkinabè d'Histoire et d'Archéologie, n°1 · 2024 · p. 41–58</div>
+      <p class="pub-title">« La mise en œuvre des projets et des programmes régionaux de l'élevage dans le cadre de la coopération UE-Burkina Faso (2000-2020) »</p>
+      <p class="pub-authors">Dianda, Inoussa ; Ouédraogo, Boukaré</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Revue AKIRI, n°8 · 2024 · p. 282–299</div>
+      <p class="pub-title">« Histoire quantitative de l'appui budgétaire de l'UE au Burkina Faso (2000-2020) »</p>
+      <p class="pub-authors">Dianda, Inoussa ; Ouédraogo, Boukaré ; Yaméogo, Guétawendé Nathanael</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Revue HARIS, n°13 · 2024 · p. 18–28</div>
+      <p class="pub-title">« La mise en œuvre au Burkina Faso de la coopération UE-Burkina Faso dans le domaine des transports »</p>
+      <p class="pub-authors">Dianda, Inoussa ; Ouédraogo, Boukaré</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Actes, colloque Burkina Faso en Afrique et dans le monde, Tome 2 · 2023 · p. 551–569</div>
+      <p class="pub-title">« Analyse et interprétation des accords de coopération UE-ACP de 1957 à 2000 »</p>
+      <p class="pub-authors">Dianda, Inoussa — Presses Universitaires</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Actes, colloque L'Afrique en devenir, Tome 2 · 2023 · p. 117–139</div>
+      <p class="pub-title">« Le Burkina Faso (ex-Haute-Volta) dans les relations UE-ACP : de la veille des indépendances à 2020 »</p>
+      <p class="pub-authors">Dianda, Inoussa — L'Harmattan</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Actes, colloque Terrorisme au Burkina Faso : négocier ou pas ?, Tome 2 · 2022 · p. 55–69</div>
+      <p class="pub-title">« Esquisses et techniques de négociation dans le contexte de terrorisme au Burkina Faso »</p>
+      <p class="pub-authors">Dianda, Inoussa — L'Harmattan</p>
+    </div>
+    <div class="pub">
+      <div class="pub-journal">Revue DELLA/AFRIQUE, tome 2, n°6 · 2020 · p. 151–167</div>
+      <p class="pub-title">« Étude critique des accords de partenariat économique (APE) sur le développement socio-économique du Burkina Faso »</p>
+      <p class="pub-authors">Dianda, Inoussa</p>
+    </div>
+  </div>
+</section>
+
+<section id="competences">
+  <div class="wrap">
+    <p class="kicker">Compétences & langues</p>
+    <h2 class="section-title">Outils et communication</h2>
+    <div class="two-col">
+      <div>
+        <p class="tl-title" style="margin-bottom:14px;">Compétences numériques</p>
+        <div class="chip-grid">
+          <div class="chip"><span class="dot"></span>Word</div>
+          <div class="chip"><span class="dot"></span>Excel</div>
+          <div class="chip"><span class="dot"></span>PowerPoint</div>
+          <div class="chip"><span class="dot"></span>Illustrator</div>
+          <div class="chip"><span class="dot"></span>Photoshop</div>
+        </div>
+      </div>
+      <div>
+        <p class="tl-title" style="margin-bottom:14px;">Langues</p>
+        <div class="chip-grid">
+          <div class="chip"><span class="dot"></span>Français <span class="lvl">— très avancé</span></div>
+          <div class="chip"><span class="dot"></span>Mooré <span class="lvl">— langue maternelle</span></div>
+          <div class="chip"><span class="dot"></span>Dioula <span class="lvl">— B2</span></div>
+          <div class="chip"><span class="dot"></span>Anglais <span class="lvl">— B1</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="references">
+  <div class="wrap">
+    <p class="kicker">Personnes de référence</p>
+    <h2 class="section-title">Références académiques</h2>
+    <div class="ref-card">
+      <div class="ref-name">Pr. ZERBO Yacouba</div>
+      <div class="ref-title">Professeur Titulaire, Université Joseph KI-ZERBO (Burkina Faso)</div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-name">Philippe Vonnard</div>
+      <div class="ref-title">Directeur de Recherche, Université de Fribourg / UNIL, Lausanne (Suisse)</div>
+    </div>
+    <div class="ref-card">
+      <div class="ref-name">Antoine Vauchez</div>
+      <div class="ref-title">Directeur de Recherche au CNRS, Université Paris 1 Panthéon-Sorbonne (France)</div>
+    </div>
+    <p class="ref-note">Coordonnées complètes des références communiquées sur demande.</p>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <p class="kicker">Disponible pour missions</p>
+    <h2>Une étude, une évaluation<br>à réaliser au Burkina Faso ?</h2>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="mailto:inosdia@gmail.com">inosdia@gmail.com</a>
+      <a class="btn btn-ghost" href="tel:+22672464142">+226 72 46 41 42</a>
+    </div>
+    <p class="fine">Dianda Inoussa — Docteur en Histoire économique &amp; Relations internationales · Bobo-Dioulasso, Burkina Faso</p>
+  </div>
+</footer>
+
+<script>
+  const bars = document.querySelectorAll('.fed-bar');
+  const setWidth = (el) => {
+    const amt = parseFloat(el.dataset.amount);
+    const max = parseFloat(el.dataset.max);
+    el.style.width = (amt / max * 100) + '%';
+  };
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { setWidth(entry.target); io.unobserve(entry.target); } });
+    }, { threshold: 0.4 });
+    bars.forEach(b => io.observe(b));
+  } else {
+    bars.forEach(setWidth);
+  }
+</script>
+
+</body>
+</html>
